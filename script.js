@@ -71,23 +71,54 @@ addedRace()
   // Part 7
 
 const blog = function (){
-  const div = document.createElement('div');
-  div.classList.add('.blog-post')
-  const h2 = document.createElement('h2')
+  const eGirl = document.querySelector('.main')
+  const div1 = document.createElement('div');
+  div1.classList.add('blog-post', 'purple')
+  const nh1 = document.createElement('h1')
   const p = document.createElement('p')
-  h2.append(p)
-  div.append(h2)
-
-  console.log(div)
+  nh1.textContent = "Seattle";
+  p.textContent = "I don't remeber what happened here. I blacked out, or got a concussion? ";
+  eGirl.append(div1)
+  div1.append(nh1)
+  div1.append(p)
 
 }
 blog()
+
   // Part 8
+// const randomQuote= function() {
+//     document.querySelector('#quote-of-the-day').innerText = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+//   };
+//
+//   randomQuote()
+
+const qtitle = function(){
+  const title = document.querySelector('#quote-title')
+  title.addEventListener('click', (e) =>{
+    randomQuote()
+  })
+
+}
+qtitle()
 
 
   // Part 9
+const bigMouse = function(){
 
+  const blogBlock = document.querySelectorAll('.blog-post')
+  for(let blog of blogBlock){
+    const toggleClass = (node, className) => {
+    node.classList.toggle(className)
+  }
+    blog.children[1].addEventListener('mouseenter', (e)=>{
+      toggleClass(blog, 'red')
+    } )
+    blog.children[0].addEventListener('mouseout', (e)=>{
+      toggleClass(blog, 'purple')
+    } )
+  }
+}
 
-
+bigMouse()
 
 });
